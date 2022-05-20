@@ -1,6 +1,7 @@
 # get-eft
 Auto generate ssh xterm  menu
 
+![image of menu](https://github.com/Tearran/get-eft/raw/main/eft-menu.png)
 ## Purpose 
 headless linux operation
 
