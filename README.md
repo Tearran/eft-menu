@@ -1,5 +1,7 @@
 # get-eft
-self generated ssh xterm  menu
+Get-elf aimes to be a self generated ssh xterm USER INTERFACE. Get-elf is a continuation of [get-help](https://github.com/Tearran/get-help) 
+
+
 
 ![image of menu](https://github.com/Tearran/get-eft/raw/main/eft-menu.png)
 ## Purpose 
