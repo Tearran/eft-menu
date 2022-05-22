@@ -39,7 +39,7 @@ headless linux operation
 ## Features from get-help
 
 - getops example ( known flags -v -h )
-  - $ `get-help -h`
+  - $ `get-eft -h`
   ```bash
   Usage: get-help [ -h ] [ --help ]
   Options:
