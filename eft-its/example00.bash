@@ -1,17 +1,10 @@
 
-set_samba(){
-##ToDo Catagory##Setup File Share (samba)
-  sudo apt install samba -y
-  echo "change workgroup name and file location"
-  #todo add sed
-  sudo nano /etc/samba/smb.conf
-  echo "enter a password"
-  sudo smbpasswd -a alpha
-  sudo service smbd restart
-}
+fun_name_00(){
+##TODO Catagory(submenu) ##A Short Decription of the Function 00
 
-rem_samba(){
-##ToDo Catagory##Remove File Share (samba)
-  sudo apt-get purge samba
-  sudo rm -rf /etc/samba/ /etc/default/samba
+  echo -e "This has been an example exicution of a menu entry 00"
+  printf "\n\nPress any key to continue.\n"
+  read -n 1
+
+
 }

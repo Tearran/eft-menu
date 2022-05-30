@@ -1,6 +1,6 @@
 
 fun_name_02(){
-##TODO Catagory(submenu) ##A Short Decription of the Function 00
+##TODO Catagory(submenu) ##A Short Decription of the Function 02
 
   #save screen state
   tput smcup
@@ -10,5 +10,5 @@ fun_name_02(){
   read -n 1
   #restore screen state
   tput rmcup
-  
+
 }
