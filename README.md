@@ -1,9 +1,14 @@
-# get-eft
-get-eft is a continuation of [get-help](https://github.com/Tearran/get-help) 
-## Purpose 
-get-eft aimes to be a self generated ssh xterm USER INTERFACE. for headless linux operation
+# eft-menu
 
 
-![image of menu](https://github.com/Tearran/get-eft/raw/main/eft-menu.png)
+``` 
+ĕft noun
+A newt in its juvenile terrestrial stage
+A newt; any small lizard.
+```
+## Purpose
+eft-menu aimes to be a self generated NEWT color-themed, ssh, xterm USER INTERFACE for headless linux operation
 
+## Usage
 
+todo;
