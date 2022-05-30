@@ -1,5 +1,16 @@
 #!/bin/bash
-set -x
+tput smcup
+#set -x
+clear
 DIRECTORY=$(cd `dirname $0` && pwd)
-echo $DIRECTORY
-cat $( echo -e $DIRECTORY/eft-its/*.bash )  >  $DIRECTORY/libeft-its 
+itsname=libeft-its
+eftname=eft-menu
+cat $( echo -e $DIRECTORY/eft-its/*.bash )  >  $DIRECTORY/$itsname
+echo -e "\neft-its library created $DIRECTORY/$libname\n\n"
+echo -e "\nTesting $eftname $itsname Funtions"
+echo -e "\n\tPress any key to continue...\n"
+read -n 1
+
+( bash $DIRECTORY/$eftname ) 
+
+tput rmcup  
