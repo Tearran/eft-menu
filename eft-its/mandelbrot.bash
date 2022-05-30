@@ -20,8 +20,8 @@ function colorBox {
 	printf '\u2588'
 }
 
-see_mand(){
-## ##See a mandelbrot set
+see_mandelbrot(){
+## ##Charles Cooke's 16-color Mandelbrot
 
   tput smcup && clear
   	unset -v lastclr
