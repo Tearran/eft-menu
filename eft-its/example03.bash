@@ -1,5 +1,5 @@
 
-fun_name_00(){
+run_rasconf(){
 ##TODO Catagory(submenu) ##Raspberry pi Configuration (raspi-congfig)
 
   tput smcup
