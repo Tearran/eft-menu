@@ -1,0 +1,5 @@
+#!/bin/bash
+set -x
+DIRECTORY=$(cd `dirname $0` && pwd)
+echo $DIRECTORY
+cat $( echo -e $DIRECTORY/eft-its/*.bash )  >  $DIRECTORY/libeft-its 
