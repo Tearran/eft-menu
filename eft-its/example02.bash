@@ -1,8 +1,7 @@
 
-fun_name_02(){
-##TODO Catagory(submenu) ##A Short Decription of the Function 02
+message_example(){
+##TODO Catagory(submenu) ##Whiptail message example
 
-whiptail --msgbox "This has been an example exicution of a menu entry 02 \
-Press OK to continue" (stty size)
+whiptail --msgbox "This has been an example exicution of a menu entry 02 Press OK to continue" 0 0
 
 }
