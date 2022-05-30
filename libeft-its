@@ -1,0 +1,50 @@
+
+set_samba(){
+##ToDo Catagory##Setup File Share (samba)
+  sudo apt install samba -y
+  echo "change workgroup name and file location"
+  #todo add sed
+  sudo nano /etc/samba/smb.conf
+  echo "enter a password"
+  sudo smbpasswd -a alpha
+  sudo service smbd restart
+}
+
+rem_samba(){
+##ToDo Catagory##Remove File Share (samba)
+  sudo apt-get purge samba
+  sudo rm -rf /etc/samba/ /etc/default/samba
+}
+
+fun_name_01(){
+##TODO Catagory(submenu) ##A Short Decription of the Function 01
+  
+  #save screen scroll back
+  clear -x
+  echo -e "This has been an example exicution of a menu entry 01"
+  printf "\n\nPress any key to continue.\n"
+  read -n 1
+
+
+}
+
+fun_name_02(){
+##TODO Catagory(submenu) ##A Short Decription of the Function 00
+
+  #save screen state
+  tput smcup
+  clear
+  echo -e "This has been an example exicution of a menu entry 02"
+  printf "\n\nPress any key to continue.\n"
+  read -n 1
+  #restore screen state
+  tput rmcup
+  
+}
+
+fun_name_00(){
+##TODO Catagory(submenu) ##Raspberry pi Configuration (raspi-congfig)
+
+[[ -f /bin/raspi-config ]] && sudo raspi-config
+  
+}

@@ -1,10 +1,17 @@
-# eft-menu generated from double comment staments
-# eft IT's double commnet format
-# funtion name "(){"
 
-fun_name_00(){
-##TODO Catagory(submenu) ##Raspberry pi Configuration (raspi-congfig)
+set_samba(){
+##ToDo Catagory##Setup File Share (samba)
+  sudo apt install samba -y
+  echo "change workgroup name and file location"
+  #todo add sed
+  sudo nano /etc/samba/smb.conf
+  echo "enter a password"
+  sudo smbpasswd -a alpha
+  sudo service smbd restart
+}
 
-[[ -f /bin/raspi-config ]] && sudo raspi-config
-  
+rem_samba(){
+##ToDo Catagory##Remove File Share (samba)
+  sudo apt-get purge samba
+  sudo rm -rf /etc/samba/ /etc/default/samba
 }
