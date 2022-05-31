@@ -1,7 +1,9 @@
 
+# Requiers EFT-ITS format to show in menu is
+# double shh (2x#) singleString (2X#) Short multy string discription
+
 # Charles Cooke's 16-color Mandelbrot
 # http://earth.gkhs.net/ccooke/shell.html
-# Combined Bash/ksh93 flavors by Dan Douglas (ormaaj)
 
 function doBash {
 	typeset P Q X Y a b c i v x y

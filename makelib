@@ -1,16 +1,21 @@
 #!/bin/bash
-tput smcup
-#set -x
-clear
-DIRECTORY=$(cd `dirname $0` && pwd)
-itsname=libeft-its
-eftname=eft-menu
-cat $( echo -e $DIRECTORY/eft-its/*.bash )  >  $DIRECTORY/$itsname
-echo -e "\neft-its library created $DIRECTORY/$libname\n\n"
-echo -e "\nTesting $eftname $itsname Funtions"
-echo -e "\n\tPress any key to continue...\n"
-read -n 1
 
+make_ifts()
+{
+  tput smcup
+  set -x
+  clear
+  DIRECTORY=$(cd `dirname $0` && pwd)
+  itsname=libeft-its
+  eftname=eft-menu
+  cat $( echo -e $DIRECTORY/eft-its/*.its )  >  $DIRECTORY/$itsname
+  echo -e "\neft-its library created $DIRECTORY/$libname\n\n"
+  echo -e "\nTest $eftname $itsname Funtions"
+  echo -e "\n\tPress any key to test...\n"
+  read -n 1
 ( bash $DIRECTORY/$eftname ) 
+  tput rmcup  
 
-tput rmcup  
+}
+
+make_ifts

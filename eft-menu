@@ -17,12 +17,13 @@ SRC="${BASH_SOURCE[0]}"
 filename=$(basename "$SRC")
 
 #Path to librarie if installed /user/lib/
-[ -d /usr/lib/libeft-its ] && libname=/user/lib/libeft-its
+[ -f /usr/lib/libeft-its ] && libname=/user/lib/libeft-its
 #path to library if not installed (dev mode)
-[ ! -d /usr/lib/libeft-its ] && libname=$(dirname "$0")/libeft-its
+[ ! -f /usr/lib/libeft-its ] && libname=$(dirname "$0")/libeft-its
+
 
 #include library
-. $libname
+[ -f $libname ] && . $libname
 
 # Newt color theme for whiptail
 # type = forground, background
@@ -78,17 +79,36 @@ see_version()
 
 see_help()
 {
-  echo "Usage: ${filename%.*} [ -h ] [ -v ]"
+  echo "Usage: ${filename%.*} [ -h  | -v | -m ]"
   echo -e "Options:"
   echo -e "\t-h\tPrint this help."
   echo -e "\t-v\tPrint version info."
+  echo -e "\t-m\tmakelib Generate eft-its library."
+  
+}
+
+make_ifts()
+{
+
+  DIRECTORY=$(cd `dirname $0` && pwd)
+  itsname=libeft-its
+  eftname=eft-menu
+  cat $( echo -e $DIRECTORY/eft-its/*.its )  >  $DIRECTORY/$itsname
+  echo -e "\neft-its library created $DIRECTORY/$itsname\n\n"
+  
+  echo -e "\n\tPress any key to Continue...\n"
+  read -n 1
+#( bash $DIRECTORY/$eftname ) 
+ 
+
 }
 
 if [[ $# -eq 1 ]] ; then
-while getopts ":hv" opt; do
+while getopts ":hvm" opt; do
     case $opt in
       h) see_help break ;;
       v) see_version break ;;
+      m) make_ifts break ;;
       ?) echo  -e "\033[33;5m?! Say What!?\033[0m" ; see_help break ;;
     esac
   exit
@@ -96,6 +116,6 @@ done
 fi
 
 if [[ $# -eq 0 ]] ; then
-  run_whiptail
-  tput cup "$(tput lines)" 0
+  [ -f $libname ] && run_whiptail
+  [ ! -f $libname ] && echo -e "Library not found \033[5mrun makelib\033[0m\nDisplaying help file\n" && see_help
 fi

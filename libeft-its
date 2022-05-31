@@ -1,6 +1,70 @@
 
+fun_name_01(){
+##TODO Catagory(submenu) ##A Short Decription of the Function 01
+  
+  tput smcup && clear
+  echo -e "This has been an example exicution of a menu entry 01"
+  printf "\n\nPress any key to continue.\n"
+  read -n 1
+  tput rmcup
+
+}
+
+whiptail_message_example(){
+##TODO Catagory(submenu) ##Whiptail message example
+
+whiptail --msgbox "This has been an example exicution of a menu entry 02 Press OK to continue" 0 0
+
+}
+
+# Requiers EFT-ITS format to show in menu is
+# double shh (2x#) singleString (2X#) Short multy string discription
+
+# Charles Cooke's 16-color Mandelbrot
+# http://earth.gkhs.net/ccooke/shell.html
+
+function doBash {
+	typeset P Q X Y a b c i v x y
+	for ((P=10**8,Q=P/100,X=320*Q/cols,Y=210*Q/lines,y=-105*Q,v=-220*Q,x=v;y<105*Q;x=v,y+=Y)); do
+		for ((;x<P;a=b=i=c=0,x+=X)); do
+			for ((;a**2+b**2<4*P**2&&i++<99;a=((c=a)**2-b**2)/P+x,b=2*c*b/P+y)); do :
+			done
+			colorBox $((i<99?i%16:0))
+		done
+		echo
+	done
+}
+
+function colorBox {
+	(($1==lastclr)) || printf %s "${colrs[lastclr=$1]:=$(tput setaf "$1")}"
+	printf '\u2588'
+}
+
+see_mandelbrot(){
+## ##Charles Cooke's 16-color Mandelbrot
+
+  tput smcup && clear
+  	unset -v lastclr
+  	((cols=$(tput cols)-1, lines=$(tput lines)))
+  	typeset -a colrs
+	  trap 'tput sgr0; echo' EXIT
+  	${BASH_VERSION+doBash}
+  tput rmcup
+
+}
+
+# just for fun :)
+run_rasconf(){
+##TODO Catagory(submenu) ##Raspberry pi Configuration (raspi-congfig)
+
+  tput smcup
+    [[ -f /bin/raspi-config ]] && sudo raspi-config
+  tput rmcup
+
+}
+
 set_samba(){
-##ToDo Catagory##Setup File Share (samba)
+##ToDo Catagory##Set-up File Share (samba)
   sudo apt install samba -y
   echo "change workgroup name and file location"
   #todo add sed
@@ -14,37 +78,4 @@ rem_samba(){
 ##ToDo Catagory##Remove File Share (samba)
   sudo apt-get purge samba
   sudo rm -rf /etc/samba/ /etc/default/samba
-}
-
-fun_name_01(){
-##TODO Catagory(submenu) ##A Short Decription of the Function 01
-  
-  #save screen scroll back
-  clear -x
-  echo -e "This has been an example exicution of a menu entry 01"
-  printf "\n\nPress any key to continue.\n"
-  read -n 1
-
-
-}
-
-fun_name_02(){
-##TODO Catagory(submenu) ##A Short Decription of the Function 00
-
-  #save screen state
-  tput smcup
-  clear
-  echo -e "This has been an example exicution of a menu entry 02"
-  printf "\n\nPress any key to continue.\n"
-  read -n 1
-  #restore screen state
-  tput rmcup
-  
-}
-
-fun_name_00(){
-##TODO Catagory(submenu) ##Raspberry pi Configuration (raspi-congfig)
-
-[[ -f /bin/raspi-config ]] && sudo raspi-config
-  
 }
