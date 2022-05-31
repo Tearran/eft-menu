@@ -7,7 +7,7 @@
 # versinfo="0.0.1" first alpha
 # versinfo="0.1.0" first release
 # versinfo="1.0.0" first stable release
-versinfo="0.pre.alpha"
+versinfo="0.0.10"
 
 #File location and name
 SRC="${BASH_SOURCE[0]}"
@@ -20,8 +20,6 @@ filename=$(basename "$SRC")
 [ -f /usr/lib/libeft-its ] && libname=/user/lib/libeft-its
 #path to library if not installed (dev mode)
 [ ! -f /usr/lib/libeft-its ] && libname=$(dirname "$0")/libeft-its
-
-
 #include library
 [ -f $libname ] && . $libname
 
@@ -77,15 +75,7 @@ see_version()
   echo " ${filename%.*} version $versinfo "
 }
 
-see_help()
-{
-  echo "Usage: ${filename%.*} [ -h  | -v | -m ]"
-  echo -e "Options:"
-  echo -e "\t-h\tPrint this help."
-  echo -e "\t-v\tPrint version info."
-  echo -e "\t-m\tmakelib Generate eft-its library."
-  
-}
+
 
 make_ifts()
 {
@@ -101,6 +91,16 @@ make_ifts()
 #( bash $DIRECTORY/$eftname ) 
  
 
+}
+
+see_help()
+{
+  echo "Usage: ${filename%.*} [ -h  | -v | -m ]"
+  echo -e "Options:"
+  echo -e "\t-h\tPrint this help."
+  echo -e "\t-v\tPrint version info."
+  echo -e "\t-m\tmakelib Generate eft-its library."
+  
 }
 
 if [[ $# -eq 1 ]] ; then
