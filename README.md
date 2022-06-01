@@ -28,7 +28,13 @@ Options:
         -v      Print version info.
         -m      makelib Generate eft-its library.
 ```
-
+## Target system
+Debian on a Single board computor
+### Tested on
+- Rapberry pi Zero
+- Rapberry pi Zero W
+- Rapberry pi Zero 2
+- OS Raspian Buster (long term support)
 
 
 
